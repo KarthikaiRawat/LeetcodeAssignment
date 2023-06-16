@@ -1,0 +1,13 @@
+https://practice.geeksforgeeks.org/problems/missing-number-in-array1416/1?page=1&curated[]=1&sortBy=submissions
+
+class Solution {
+    int missingNumber(int array[], int n) {
+        // Your Code Here
+       int sum=n*(n+1)/2;
+       
+      for(int i: array){
+          sum=sum-i;
+      }
+      return sum;
+    }
+}

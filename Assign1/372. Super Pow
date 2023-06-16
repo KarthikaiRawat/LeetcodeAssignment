@@ -1,0 +1,25 @@
+https://leetcode.com/problems/super-pow/
+
+class Solution {
+    private static final int MOD = 1337;
+
+    public int superPow(int a, int[] b) {
+        if (a == 0) return a;
+
+        int pow = 0;
+        for (int i = 0; i < b.length; i++) {
+            pow = (pow * 10 + b[i]) % 1140;
+        }
+
+        return mySuperPow(a, pow);
+    }
+
+    public int mySuperPow(int a, int b) {
+        if (b == 0)
+            return 1;
+
+        a %= MOD; // Reduce a modulo 1337
+        int x = mySuperPow(a, b - 1); // Recursive call with b - 1
+        return (a * x) % MOD;
+    }
+}

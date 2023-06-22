@@ -1,0 +1,34 @@
+https://leetcode.com/problems/permutations/description/
+
+class Solution {
+    public List<List<Integer>> permute(int[] nums) {
+ List<List<Integer>> finalres = new ArrayList<>();
+     perm(nums,new ArrayList<>(),finalres);
+        return finalres;
+        
+    }
+    void perm(int[] nums,List<Integer> arr,List<List<Integer>> finalres)
+    {
+        if(arr.size()==nums.length)
+        {
+            finalres.add(new ArrayList<>(arr));
+            return;
+        }
+           
+      for(int i:nums)
+      {
+          if(!arr.contains(i))
+          {
+              arr.add(i);
+             perm(nums,arr,finalres);
+
+          
+          arr.remove(arr.size()-1);
+          }
+
+      }
+
+    }
+}
+
+
